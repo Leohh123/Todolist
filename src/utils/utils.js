@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 var countID = 0;
 export function genID() {
     return ++countID;
