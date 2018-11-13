@@ -1,6 +1,6 @@
 # Todolist
 
-![](https://img.shields.io/badge/license-MIT-green.svg) ![](https://img.shields.io/badge/Powered%20by-Leohh-blue.svg)
+![](https://img.shields.io/badge/license-MIT-green.svg) ![](https://img.shields.io/badge/release-v1.0.0-blue.svg)
 
 瞎几把做的一个Todolist 2333
 
