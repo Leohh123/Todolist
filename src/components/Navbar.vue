@@ -3,11 +3,9 @@
         <b-navbar-brand>Todolist</b-navbar-brand>
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
-                <b-nav-item href="javascript:void(0)" :active="selected == 'Home'" @click="select('Home')">Home</b-nav-item>
-                <b-nav-item href="javascript:void(0)" :active="selected == 'Today'" @click="select('Today')">Today</b-nav-item>
-                <b-nav-item href="javascript:void(0)" :active="selected == 'Plan'" @click="select('Plan')">Plan</b-nav-item>
-                <b-nav-item href="javascript:void(0)" :active="selected == 'Settings'" @click="select('Settings')">Settings</b-nav-item>
-                <b-nav-item href="javascript:void(0)" :active="selected == 'About'" @click="select('About')">About</b-nav-item>
+                <b-nav-item v-for="(item, index) in positions" :key="index" href="javascript:void(0)" :active="selected == item" @click="select(item)">
+                    {{ item }}
+                </b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <template v-if="name">
@@ -31,7 +29,8 @@ export default {
     props: ["name"],
     data() {
         return {
-            selected: "Home" // useless initial val
+            selected: "Home", // useless initial val
+            positions: ["Home", "Today", "Plan", "Settings", "About"]
         };
     },
     methods: {
