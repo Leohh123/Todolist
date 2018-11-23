@@ -48,16 +48,7 @@ export function setTheme(val) {
     setCookie("theme", val);
 }
 
-/* The following is about encryption transmission for users */
-
-function encryptRSA(str) {
-    var rsa = new RSAKey();
-    var modulus =
-        "DEE27A50E5FBEE1DC329248815D3D70C07D0E2E32FF26D07B45A04AFE8688A6DF5826D5EC901EC708FAAF49E0816EBB3DDA82FDF63438F3ECEC69FB980382A01EC43816AE1F27C157317CC22B44DEF95112869EAB9A9CBF9C48DD3378FC57E59385D8C713F1680292FC0F05F27121E9E0DB35AF335FE9B255F60D273700A3BAD";
-    var exponent = "10001";
-    rsa.setPublic(modulus, exponent);
-    return rsa.encrypt(str);
-}
+/* ------ FOR USERS ------ */
 
 export function setCookie(name, value, expireMS, global = false) {
     var exdate = new Date();
@@ -81,13 +72,10 @@ export function getCookie(name) {
 }
 
 export function logout() {
-    setCookie("token", "", -1, true);
+    store.remove("token");
     location.reload();
 }
 
 export function post(...args) {
-    var token = getCookie("token");
-    setCookie("token", encryptRSA(token), null, true);
     $.post(...args);
-    setCookie("token", token, null, true);
 }
