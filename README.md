@@ -1,6 +1,6 @@
 # Todolist
 
-![](https://img.shields.io/badge/license-MIT-green.svg) ![](https://img.shields.io/badge/release-v1.0.0-blue.svg)
+![](https://img.shields.io/badge/license-MIT-green.svg) ![](https://img.shields.io/badge/release-v1.0.1-blue.svg)
 
 瞎几把做的一个Todolist 2333
 
@@ -46,9 +46,20 @@ Website: [http://leohh.xyz/todo/](http://leohh.xyz/todo/)
 
 ## Install
 
+~~由于该项目用到了我写的一个user system，并且还没往github上传~~
+
+~~所以下面说的都是废话，看看就好......~~
+
 如果想在本地撘一个的话，直接下载压缩包，解压到对应目录
 
 先npm install
+
+再往数据库里导入两个表
+
+```
+php/sql/todo_days.sql
+php/sql/todo_plan.sql
+```
 
 然后修改以下内容
 
@@ -88,12 +99,12 @@ $server_key = "This is a string of 16 characters";
 $server_iv = "This is a string of 16 characters";
 ```
 
-js/general.js & src/utils/utils.js
+/user/js/main.js
 
 ```js
 function encryptRSA(str) {
     var rsa = new RSAKey();
-    var modulus = "here is your private key";
+    var modulus = "This is your public key";
     var exponent = "10001";
     rsa.setPublic(modulus, exponent);
     return rsa.encrypt(str);
